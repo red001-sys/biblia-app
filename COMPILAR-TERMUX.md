@@ -1,4 +1,4 @@
-# ✝ BÍBLIA CATÓLICA — GUIA DE COMPILAÇÃO NO TERMUX
+# ✝ BÍBLIA ONLINE — GUIA DE COMPILAÇÃO NO TERMUX
 # Gera o AAB final para publicar na Google Play Store
 # =====================================================
 
@@ -65,7 +65,7 @@ chmod +x gradlew
 ## PASSO 9 — Assinar o AAB (obrigatório para Play Store)
 # Gerar keystore (faça isso uma vez só e GUARDE BEM):
 keytool -genkey -v \
-  -keystore ~/biblia-catolica.keystore \
+  -keystore ~/biblia-online.keystore \
   -alias biblia \
   -keyalg RSA \
   -keysize 2048 \
@@ -75,7 +75,7 @@ keytool -genkey -v \
 jarsigner -verbose \
   -sigalg SHA256withRSA \
   -digestalg SHA-256 \
-  -keystore ~/biblia-catolica.keystore \
+  -keystore ~/biblia-online.keystore \
   ~/biblia-app/android/app/build/outputs/bundle/release/app-release.aab \
   biblia
 
@@ -91,8 +91,8 @@ jarsigner -verify \
 # 5. Preencha as informações e publique
 
 ## INFORMAÇÕES DO APP
-# App ID: com.bibliacatolica.app
-# Nome: Bíblia Católica
+# App ID: com.bibliaonline.app
+# Nome: Bíblia Online
 # AdMob App ID: ca-app-pub-9088121551421320~6444146110
 # AdMob Ad Unit: ca-app-pub-9088121551421320/6514782938
 

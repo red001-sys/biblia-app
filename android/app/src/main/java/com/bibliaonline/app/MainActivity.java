@@ -1,4 +1,4 @@
-package com.bibliacatolica.app;
+package com.bibliaonline.app;
 
 import com.getcapacitor.BridgeActivity;
 

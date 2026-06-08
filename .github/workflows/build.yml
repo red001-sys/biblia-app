@@ -46,7 +46,14 @@ jobs:
       - name: Dar permissão ao Gradle
         run: chmod +x android/gradlew
 
+      - name: Decodificar keystore release
+        env:
+          BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: echo "$BASE64" | base64 -d > android/app/release.keystore.jks
+
       - name: Build AAB Release
+        env:
+          KEYSTORE_PATH: android/app/release.keystore.jks
         run: |
           cd android
           ./gradlew bundleRelease
