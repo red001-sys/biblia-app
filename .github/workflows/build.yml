@@ -57,6 +57,22 @@ jobs:
         run: |
           echo "$BASE64" | base64 -d > android/app/release.keystore.jks
 
+
+      - name: Verificar keystore
+        run: |
+         keytool -list -v \
+         -keystore android/app/release.keystore.jks \
+         -storetype PKCS12 \
+         -storepass "${{ secrets.KEYSTORE_PASSWORD }}"
+
+      - name: Verificar alias
+        run: |
+         keytool -list \
+         -keystore android/app/release.keystore.jks \
+         -storetype PKCS12 \
+         -storepass "${{ secrets.KEYSTORE_PASSWORD }}"
+      
+
       - name: Build AAB Release
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
