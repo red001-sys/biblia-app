@@ -52,8 +52,6 @@ jobs:
         run: echo "$BASE64" | base64 -d > android/app/release.keystore.jks
 
       - name: Build AAB Release
-        env:
-          KEYSTORE_PATH: android/app/release.keystore.jks
         run: |
           cd android
           ./gradlew bundleRelease
