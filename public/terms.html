@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Termos de Uso — Bíblia Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0b08;
+      --surface:   #141008;
+      --gold:      #c8963e;
+      --gold-dim:  rgba(200,150,62,.55);
+      --gold-line: rgba(200,150,62,.18);
+      --text:      #e8dfc8;
+      --text-dim:  rgba(232,223,200,.45);
+      --green:     rgba(140,220,140,.8);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(200,150,62,.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 100%, rgba(100,60,160,.07) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--gold-line);
+      background: linear-gradient(180deg, rgba(200,150,62,.07), transparent);
+      padding: 28px 24px 22px;
+      text-align: center;
+    }
+
+    .header-cross {
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .04em;
+    }
+
+    header p {
+      font-size: .75rem;
+      color: var(--text-dim);
+      letter-spacing: .12em;
+      margin-top: 4px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .header-date {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .72rem;
+      color: var(--green);
+      font-family: 'Cinzel', serif;
+      letter-spacing: .08em;
+      background: rgba(60,120,60,.15);
+      border: 1px solid rgba(80,180,80,.2);
+      border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    nav.toc {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border-bottom: 1px solid var(--gold-line);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    nav.toc a {
+      font-family: 'Cinzel', serif;
+      font-size: .62rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: .06em;
+      transition: color .2s;
+    }
+    nav.toc a:hover { color: var(--gold); }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px 24px 64px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(200,150,62,.08);
+    }
+    section:last-child { border-bottom: none; }
+
+    .section-num {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      color: var(--gold-dim);
+      letter-spacing: .2em;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .05em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: .82rem;
+      font-weight: 400;
+      color: rgba(200,150,62,.8);
+      letter-spacing: .06em;
+      margin: 18px 0 8px;
+    }
+
+    p { margin-bottom: 12px; color: rgba(232,223,200,.82); }
+
+    ul {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: rgba(232,223,200,.78);
+      border-bottom: 1px solid rgba(200,150,62,.05);
+    }
+
+    ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      font-size: .5rem;
+      color: var(--gold-dim);
+      top: 10px;
+    }
+
+    .callout {
+      background: rgba(200,150,62,.07);
+      border: 1px solid rgba(200,150,62,.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: .92rem;
+      color: rgba(232,223,200,.85);
+    }
+
+    .callout strong {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    a.ext {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200,150,62,.3);
+      transition: border-color .2s;
+      word-break: break-all;
+    }
+    a.ext:hover { border-color: var(--gold); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--gold-line);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer .logo {
+      font-family: 'Cinzel', serif;
+      font-size: .9rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    footer p {
+      font-size: .72rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    footer nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    footer nav a {
+      font-family: 'Cinzel', serif;
+      font-size: .62rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: .06em;
+    }
+    footer nav a:hover { color: var(--gold); }
+
+    @media (max-width: 480px) {
+      main { padding: 24px 16px 48px; }
+      header { padding: 22px 16px 18px; }
+      nav.toc { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-cross">✝ BÍBLIA ONLINE</div>
+  <h1>Termos de Uso</h1>
+  <p>REDSTAR · APLICATIVO BÍBLIA ONLINE</p>
+  <span class="header-date">● Última atualização: 12 de junho de 2026</span>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <a href="#s1">1. Aceitação</a>
+  <a href="#s2">2. Serviço</a>
+  <a href="#s3">3. Uso Permitido</a>
+  <a href="#s4">4. Conteúdo</a>
+  <a href="#s5">5. Publicidade</a>
+  <a href="#s6">6. Disponibilidade</a>
+  <a href="#s7">7. Propriedade</a>
+  <a href="#s8">8. Isenção</a>
+  <a href="#s9">9. Terceiros</a>
+  <a href="#s10">10. Menores</a>
+  <a href="#s11">11. Modificações</a>
+  <a href="#s12">12. Lei e Foro</a>
+  <a href="#s13">13. Contato</a>
+</nav>
+
+<main>
+
+  <section id="s1">
+    <div class="section-num">✦ ARTIGO 01</div>
+    <h2>Aceitação dos Termos</h2>
+    <p>Ao baixar, instalar ou utilizar o aplicativo <strong>Bíblia Online</strong> ("Aplicativo"), desenvolvido e distribuído pela <strong>RedStar</strong> ("nós", "nos" ou "nosso"), você concorda integralmente com estes Termos de Uso.</p>
+    <div class="callout">
+      <strong>ATENÇÃO</strong>
+      Se você não concordar com qualquer parte destes termos, não utilize o Aplicativo.
+    </div>
+  </section>
+
+  <section id="s2">
+    <div class="section-num">✦ ARTIGO 02</div>
+    <h2>Descrição do Serviço</h2>
+    <p>O Bíblia Online é um aplicativo gratuito de leitura da Bíblia Sagrada que oferece:</p>
+    <ul>
+      <li>Acesso ao texto sagrado completo (Bíblia Livre)</li>
+      <li>Orações tradicionais</li>
+      <li>Versículo diário com rotação automática</li>
+      <li>Busca inteligente por temas e referências</li>
+      <li>Acesso a transmissões de missa ao vivo</li>
+      <li>Leitura offline de capítulos salvos</li>
+    </ul>
+    <p>O conteúdo bíblico utilizado é proveniente da <strong>Bíblia Livre</strong>, de domínio público.</p>
+  </section>
+
+  <section id="s3">
+    <div class="section-num">✦ ARTIGO 03</div>
+    <h2>Uso Permitido</h2>
+    <p>Você pode utilizar o Aplicativo para fins pessoais, espirituais e educacionais, de forma gratuita. É expressamente proibido:</p>
+    <ul>
+      <li>Reproduzir, distribuir ou modificar o Aplicativo sem autorização prévia e por escrito da RedStar</li>
+      <li>Utilizar o Aplicativo para fins comerciais sem autorização</li>
+      <li>Tentar realizar engenharia reversa, descompilar ou desmontar o Aplicativo</li>
+      <li>Utilizar o Aplicativo de forma que viole qualquer lei ou regulamento aplicável</li>
+      <li>Interferir no funcionamento do Aplicativo ou de seus servidores</li>
+    </ul>
+  </section>
+
+  <section id="s4">
+    <div class="section-num">✦ ARTIGO 04</div>
+    <h2>Conteúdo Bíblico</h2>
+    <p>O texto bíblico disponibilizado é proveniente da tradução <strong>Bíblia Livre</strong>, que é de domínio público. A RedStar não reivindica direitos autorais sobre o conteúdo bíblico em si, mas reivindica direitos sobre o design, a estrutura, o código e os demais elementos originais do Aplicativo.</p>
+  </section>
+
+  <section id="s5">
+    <div class="section-num">✦ ARTIGO 05</div>
+    <h2>Publicidade</h2>
+    <p>O Aplicativo exibe anúncios fornecidos pelo <strong>Google AdMob</strong>, serviço de publicidade da Google LLC. Esses anúncios ajudam a manter o Aplicativo gratuito para todos os usuários.</p>
+    <div class="callout">
+      <strong>SOBRE OS ANÚNCIOS</strong>
+      A RedStar não é responsável pelo conteúdo dos anúncios exibidos, que são selecionados e gerenciados pela Google conforme suas próprias políticas.
+    </div>
+    <p>A exibição de anúncios está sujeita à Política de Privacidade da Google, disponível em: <a class="ext" href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section id="s6">
+    <div class="section-num">✦ ARTIGO 06</div>
+    <h2>Disponibilidade do Serviço</h2>
+    <p>O Aplicativo pode estar total ou parcialmente indisponível em razão de manutenção, atualizações ou falhas técnicas. A RedStar não garante disponibilidade ininterrupta.</p>
+    <h3>Funcionalidades Offline</h3>
+    <p>Disponíveis sem internet: leitura de capítulos previamente salvos e orações tradicionais.</p>
+    <h3>Funcionalidades Online</h3>
+    <p>Requerem conexão ativa: transmissões de missa ao vivo, carregamento de novos capítulos e exibição de anúncios.</p>
+  </section>
+
+  <section id="s7">
+    <div class="section-num">✦ ARTIGO 07</div>
+    <h2>Propriedade Intelectual</h2>
+    <p>O Aplicativo, incluindo seu design, ícones, logotipos, código-fonte, estrutura de navegação e demais elementos originais, é propriedade exclusiva da <strong>RedStar</strong> e está protegido pelas leis brasileiras e internacionais de propriedade intelectual.</p>
+  </section>
+
+  <section id="s8">
+    <div class="section-num">✦ ARTIGO 08</div>
+    <h2>Isenção de Responsabilidade</h2>
+    <p>O Aplicativo é fornecido "no estado em que se encontra", sem garantias de qualquer natureza. A RedStar não se responsabiliza por:</p>
+    <ul>
+      <li>Erros ou imprecisões no conteúdo</li>
+      <li>Danos diretos ou indiretos decorrentes do uso ou incapacidade de uso do Aplicativo</li>
+      <li>Perda de dados armazenados localmente no dispositivo</li>
+      <li>Conteúdo de sites ou serviços de terceiros acessados por meio do Aplicativo</li>
+    </ul>
+  </section>
+
+  <section id="s9">
+    <div class="section-num">✦ ARTIGO 09</div>
+    <h2>Links para Terceiros</h2>
+    <p>O Aplicativo pode conter links para canais de transmissão ao vivo e outros serviços de terceiros. Esses links são fornecidos apenas para conveniência do usuário. A RedStar não endossa, controla nem se responsabiliza pelo conteúdo, práticas de privacidade ou disponibilidade desses serviços externos.</p>
+  </section>
+
+  <section id="s10">
+    <div class="section-num">✦ ARTIGO 10</div>
+    <h2>Menores de Idade</h2>
+    <p>O Aplicativo é adequado para todas as idades. Não coletamos intencionalmente dados pessoais de crianças menores de 13 anos além do que é tecnicamente processado pelo SDK do Google AdMob conforme suas próprias políticas.</p>
+  </section>
+
+  <section id="s11">
+    <div class="section-num">✦ ARTIGO 11</div>
+    <h2>Modificações dos Termos</h2>
+    <p>A RedStar reserva-se o direito de modificar estes Termos a qualquer momento. As alterações entrarão em vigor imediatamente após sua publicação no Aplicativo. O uso continuado após as alterações constitui aceitação dos novos termos.</p>
+  </section>
+
+  <section id="s12">
+    <div class="section-num">✦ ARTIGO 12</div>
+    <h2>Lei Aplicável e Foro</h2>
+    <p>Estes Termos são regidos pelas leis da <strong>República Federativa do Brasil</strong>. Fica eleito o foro da comarca de domicílio do usuário para dirimir quaisquer controvérsias, conforme o Código de Defesa do Consumidor.</p>
+  </section>
+
+  <section id="s13">
+    <div class="section-num">✦ ARTIGO 13</div>
+    <h2>Contato</h2>
+    <p>Para dúvidas, sugestões ou reclamações relacionadas a estes Termos de Uso:</p>
+    <div class="callout">
+      <strong>REDSTAR</strong>
+      E-mail: <a class="ext" href="mailto:redstarsuporteof@gmail.com">redstarsuporteof@gmail.com</a><br/>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="logo">✝ Bíblia Online — RedStar</div>
+  <p>© 2026 RedStar. Todos os direitos reservados.</p>
+  <nav>
+    <a href="privacy.html">Privacidade</a>
+    <a href="terms.html">Termos de Uso</a>
+    <a href="index.html">Voltar ao App</a>
+  </nav>
+</footer>
+
+</body>
+</html>
