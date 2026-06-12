@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidade — Bíblia Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0b08;
+      --surface:   #141008;
+      --gold:      #c8963e;
+      --gold-dim:  rgba(200,150,62,.55);
+      --gold-line: rgba(200,150,62,.18);
+      --text:      #e8dfc8;
+      --text-dim:  rgba(232,223,200,.45);
+      --green:     rgba(140,220,140,.8);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Fundo decorativo ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(200,150,62,.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 100%, rgba(100,60,160,.07) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--gold-line);
+      background: linear-gradient(180deg, rgba(200,150,62,.07), transparent);
+      padding: 28px 24px 22px;
+      text-align: center;
+    }
+
+    .header-cross {
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .04em;
+    }
+
+    header p {
+      font-size: .75rem;
+      color: var(--text-dim);
+      letter-spacing: .12em;
+      margin-top: 4px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .header-date {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .72rem;
+      color: var(--green);
+      font-family: 'Cinzel', serif;
+      letter-spacing: .08em;
+      background: rgba(60,120,60,.15);
+      border: 1px solid rgba(80,180,80,.2);
+      border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    /* ── Nav de âncoras ── */
+    nav.toc {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border-bottom: 1px solid var(--gold-line);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    nav.toc a {
+      font-family: 'Cinzel', serif;
+      font-size: .62rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: .06em;
+      transition: color .2s;
+    }
+    nav.toc a:hover { color: var(--gold); }
+
+    /* ── Conteúdo ── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px 24px 64px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(200,150,62,.08);
+    }
+    section:last-child { border-bottom: none; }
+
+    .section-num {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem;
+      color: var(--gold-dim);
+      letter-spacing: .2em;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .05em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: .82rem;
+      font-weight: 400;
+      color: rgba(200,150,62,.8);
+      letter-spacing: .06em;
+      margin: 18px 0 8px;
+    }
+
+    p { margin-bottom: 12px; color: rgba(232,223,200,.82); }
+
+    ul {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: rgba(232,223,200,.78);
+      border-bottom: 1px solid rgba(200,150,62,.05);
+    }
+
+    ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      font-size: .5rem;
+      color: var(--gold-dim);
+      top: 10px;
+    }
+
+    /* ── Destaque (callout) ── */
+    .callout {
+      background: rgba(200,150,62,.07);
+      border: 1px solid rgba(200,150,62,.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: .92rem;
+      color: rgba(232,223,200,.85);
+    }
+
+    .callout strong {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── Link externo ── */
+    a.ext {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200,150,62,.3);
+      transition: border-color .2s;
+      word-break: break-all;
+    }
+    a.ext:hover { border-color: var(--gold); }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--gold-line);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer .logo {
+      font-family: 'Cinzel', serif;
+      font-size: .9rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    footer p {
+      font-size: .72rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    footer nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    footer nav a {
+      font-family: 'Cinzel', serif;
+      font-size: .62rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: .06em;
+    }
+    footer nav a:hover { color: var(--gold); }
+
+    @media (max-width: 480px) {
+      main { padding: 24px 16px 48px; }
+      header { padding: 22px 16px 18px; }
+      nav.toc { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-cross">✝ BÍBLIA ONLINE</div>
+  <h1>Política de Privacidade</h1>
+  <p>REDSTAR · APLICATIVO BÍBLIA ONLINE</p>
+  <span class="header-date">● Última atualização: 12 de junho de 2026</span>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <a href="#s1">1. Introdução</a>
+  <a href="#s2">2. Dados Coletados</a>
+  <a href="#s3">3. Finalidade</a>
+  <a href="#s4">4. Compartilhamento</a>
+  <a href="#s5">5. Segurança</a>
+  <a href="#s6">6. Seus Direitos</a>
+  <a href="#s7">7. Retenção</a>
+  <a href="#s8">8. Transferência</a>
+  <a href="#s9">9. Crianças</a>
+  <a href="#s10">10. Alterações</a>
+  <a href="#s11">11. Contato</a>
+</nav>
+
+<main>
+
+  <section id="s1">
+    <div class="section-num">✦ ARTIGO 01</div>
+    <h2>Introdução</h2>
+    <p>A RedStar desenvolveu o aplicativo <strong>Bíblia Online</strong> com respeito integral à privacidade de seus usuários. Esta Política explica de forma clara quais informações são processadas, como são utilizadas e quais são os seus direitos, em conformidade com a <strong>Lei Geral de Proteção de Dados — LGPD (Lei nº 13.709/2018)</strong> e com as políticas do Google AdMob.</p>
+    <div class="callout">
+      <strong>RESUMO DIRETO</strong>
+      A RedStar não coleta nem armazena dados pessoais em servidores próprios. O único serviço de terceiros utilizado é o Google AdMob para exibição de anúncios.
+    </div>
+  </section>
+
+  <section id="s2">
+    <div class="section-num">✦ ARTIGO 02</div>
+    <h2>Informações Coletadas</h2>
+
+    <h3>O que a RedStar NÃO coleta</h3>
+    <p>A RedStar não coleta, armazena nem processa em seus próprios servidores nenhum dado pessoal identificável. O Aplicativo não exige criação de conta, login, e-mail ou qualquer cadastro.</p>
+
+    <h3>Dados salvos localmente no seu dispositivo</h3>
+    <p>As seguintes informações são salvas exclusivamente no armazenamento interno do seu dispositivo, nunca enviadas a qualquer servidor:</p>
+    <ul>
+      <li>Versículos marcados como favoritos</li>
+      <li>Capítulos bíblicos salvos para leitura offline</li>
+      <li>Preferências de uso do Aplicativo</li>
+    </ul>
+    <p>Esses dados são removidos automaticamente ao desinstalar o Aplicativo.</p>
+
+    <h3>Dados coletados pelo Google AdMob</h3>
+    <p>O Aplicativo utiliza o <strong>Google AdMob</strong> para exibir anúncios e manter o serviço gratuito. O SDK do AdMob pode coletar:</p>
+    <ul>
+      <li>Identificador de publicidade do dispositivo (Advertising ID)</li>
+      <li>Endereço IP</li>
+      <li>Informações do dispositivo (modelo, sistema operacional, idioma)</li>
+      <li>Dados de interação com anúncios (cliques, impressões)</li>
+      <li>Localização aproximada baseada no IP</li>
+      <li>Dados de diagnóstico e desempenho do SDK</li>
+    </ul>
+    <p>Esses dados são coletados e gerenciados exclusivamente pela Google LLC, conforme a política disponível em: <a class="ext" href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section id="s3">
+    <div class="section-num">✦ ARTIGO 03</div>
+    <h2>Finalidade do Uso dos Dados</h2>
+    <p>Os dados coletados pelo Google AdMob são utilizados exclusivamente para:</p>
+    <ul>
+      <li>Exibir anúncios relevantes e personalizados</li>
+      <li>Medir o desempenho dos anúncios</li>
+      <li>Prevenir fraudes publicitárias</li>
+      <li>Cumprir obrigações legais da Google</li>
+    </ul>
+    <p>A RedStar não tem acesso aos dados individuais coletados pelo AdMob e não os utiliza para nenhuma outra finalidade.</p>
+  </section>
+
+  <section id="s4">
+    <div class="section-num">✦ ARTIGO 04</div>
+    <h2>Compartilhamento de Dados</h2>
+    <p>A RedStar <strong>não vende, aluga, cede nem compartilha</strong> dados pessoais dos usuários com terceiros, exceto pelo funcionamento técnico do SDK do Google AdMob conforme descrito nesta política.</p>
+  </section>
+
+  <section id="s5">
+    <div class="section-num">✦ ARTIGO 05</div>
+    <h2>Segurança dos Dados</h2>
+    <p>Os dados salvos localmente (favoritos, capítulos offline) ficam protegidos pelas salvaguardas de segurança do sistema operacional Android. A RedStar não tem acesso a esses dados.</p>
+  </section>
+
+  <section id="s6">
+    <div class="section-num">✦ ARTIGO 06</div>
+    <h2>Seus Direitos (LGPD)</h2>
+    <p>Em conformidade com a LGPD, você tem direito a:</p>
+    <ul>
+      <li><strong>Acesso</strong> — saber quais dados seus estão sendo processados</li>
+      <li><strong>Correção</strong> — solicitar correção de dados incompletos ou inexatos</li>
+      <li><strong>Exclusão</strong> — remover dados locais desinstalando o Aplicativo</li>
+      <li><strong>Portabilidade</strong> — solicitar seus dados em formato estruturado</li>
+      <li><strong>Oposição</strong> — opor-se à publicidade personalizada</li>
+      <li><strong>Revogação</strong> — revogar consentimento a qualquer momento</li>
+    </ul>
+    <div class="callout">
+      <strong>CANCELAR ANÚNCIOS PERSONALIZADOS</strong>
+      Acesse Configurações → Google → Anúncios → "Cancelar personalização de anúncios" no seu dispositivo Android.
+    </div>
+  </section>
+
+  <section id="s7">
+    <div class="section-num">✦ ARTIGO 07</div>
+    <h2>Retenção de Dados</h2>
+    <p>Os dados armazenados localmente permanecem no dispositivo até que o usuário os remova manualmente ou desinstale o Aplicativo. A RedStar não retém nenhum dado em servidores próprios.</p>
+  </section>
+
+  <section id="s8">
+    <div class="section-num">✦ ARTIGO 08</div>
+    <h2>Transferência Internacional</h2>
+    <p>O Google AdMob pode transferir dados para servidores fora do Brasil, incluindo os Estados Unidos. Essa transferência é realizada em conformidade com as salvaguardas exigidas pela LGPD e pelo GDPR europeu.</p>
+  </section>
+
+  <section id="s9">
+    <div class="section-num">✦ ARTIGO 09</div>
+    <h2>Crianças e Adolescentes</h2>
+    <p>O Aplicativo é destinado ao público geral e adequado para todas as idades. Não coletamos intencionalmente dados de crianças menores de 13 anos além do que é tecnicamente processado pelo SDK do AdMob. Em caso de identificação de coleta não intencional, tomaremos as medidas necessárias para exclusão imediata.</p>
+  </section>
+
+  <section id="s10">
+    <div class="section-num">✦ ARTIGO 10</div>
+    <h2>Alterações nesta Política</h2>
+    <p>Esta Política pode ser atualizada periodicamente. Alterações significativas serão comunicadas por aviso no próprio Aplicativo. A data de atualização será sempre indicada no topo deste documento.</p>
+  </section>
+
+  <section id="s11">
+    <div class="section-num">✦ ARTIGO 11</div>
+    <h2>Contato e DPO</h2>
+    <p>Em conformidade com o art. 41 da LGPD, o encarregado de dados da RedStar pode ser contactado por:</p>
+    <div class="callout">
+      <strong>REDSTAR — ENCARREGADO DE DADOS</strong>
+      E-mail: <a class="ext" href="mailto:redstarsuporteof@gmail.com">redstarsuporteof@gmail.com</a><br/>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="logo">✝ Bíblia Online — RedStar</div>
+  <p>© 2026 RedStar. Todos os direitos reservados.</p>
+  <nav>
+    <a href="privacy.html">Privacidade</a>
+    <a href="terms.html">Termos de Uso</a>
+    <a href="index.html">Voltar ao App</a>
+  </nav>
+</footer>
+
+</body>
+</html>
