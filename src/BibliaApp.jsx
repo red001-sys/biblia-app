@@ -258,7 +258,7 @@ export default function BibliaApp() {
   };
 
   const doShare = (v) => {
-    const txt = '\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Cat\u00f3lica';
+    const txt = '\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Online';
     try {
       if (navigator.share) {
         navigator.share({ text: txt }).catch(() => {});
@@ -281,13 +281,13 @@ export default function BibliaApp() {
   };
 
   const openWhatsApp = (v) => {
-    const txt = encodeURIComponent('\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Cat\u00f3lica');
+    const txt = encodeURIComponent('\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Online');
     window.open('https://wa.me/?text=' + txt, '_blank');
     setShareModal(null);
   };
 
   const openTelegram = (v) => {
-    const txt = encodeURIComponent('\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Cat\u00f3lica');
+    const txt = encodeURIComponent('\u201c' + v.text + '\u201d\n\n\u2014 ' + v.ref + '\n\n\u2020 B\u00edblia Online');
     window.open('https://t.me/share/url?text=' + txt, '_blank');
     setShareModal(null);
   };
