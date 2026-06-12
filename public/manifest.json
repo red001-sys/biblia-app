@@ -1,7 +1,7 @@
 {
-  "name": "Bíblia Católica",
+  "name": "Bíblia Online",
   "short_name": "Bíblia",
-  "description": "Bíblia Católica completa com busca, orações e missa online",
+  "description": "Bíblia Sagrada completa com busca, orações e missa online",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0b08",
@@ -9,15 +9,15 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/src/data/icon_app.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpg",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/src/data/icon_app.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpg",
       "purpose": "any maskable"
     }
   ]
